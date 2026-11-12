@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101116" />
+    <title>PDF Studio | Organiza tus documentos</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="PDF Studio, inicio"><span class="brand-mark">P</span><span>PDF<span class="brand-light">Studio</span></span></a>
+        <div class="privacy-note"><span class="privacy-dot"></span> Tus archivos permanecen en tu dispositivo</div>
+      </header>
+      <main>
+        <section class="hero">
+          <div class="eyebrow"><span class="eyebrow-line"></span> TU ESPACIO PARA PDF</div>
+          <h1>Documentos en orden.<br /><span>En unos pocos pasos.</span></h1>
+          <p class="hero-copy">Une archivos, reordena páginas y extrae justo lo que necesitas.</p>
+        </section>
+        <section class="workspace" aria-label="Editor de PDF">
+          <div class="toolbar">
+            <div class="workspace-title"><span class="title-icon" aria-hidden="true">▤</span><div><strong>Espacio de trabajo</strong><span id="page-count">Añade documentos para empezar</span></div></div>
+            <button id="add-files" class="button button-secondary" type="button"><span class="plus">＋</span> Añadir PDF</button>
+          </div>
+          <input id="file-input" type="file" accept="application/pdf,.pdf" multiple hidden />
+          <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Seleccionar o arrastrar archivos PDF">
+            <div class="upload-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 31V8m0 0-8 8m8-8 8 8M9 29v9a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2v-9" /></svg></div>
+            <strong>Suelta tus PDF aquí</strong>
+            <span>o <button id="browse-files" class="text-button" type="button">explora tus archivos</button></span>
+            <small>PDF · Puedes seleccionar varios archivos</small>
+          </div>
+          <div id="editor" class="editor" hidden>
+            <div class="editor-heading"><div><h2>Páginas del documento</h2><p>Arrastra las tarjetas para cambiar el orden.</p></div><button id="clear-all" class="text-button muted" type="button">Vaciar todo</button></div>
+            <div id="page-grid" class="page-grid" aria-live="polite"></div>
+            <div class="export-panel">
+              <div class="panel-heading"><span class="step-number">01</span><div><h3>Unir y descargar</h3><p>Combina todas las páginas en un nuevo PDF.</p></div></div>
+              <div class="action-row"><label class="filename-field"><span>Nombre del archivo final</span><div><input id="filename" type="text" value="documento-unido" aria-label="Nombre del archivo final" /><span class="file-extension">.pdf</span></div></label><button id="export-pdf" class="button button-primary" type="button"><span>Unir y descargar</span><span aria-hidden="true">↓</span></button></div>
+              <div class="panel-divider"></div>
+              <div class="panel-heading"><span class="step-number step-number-alt">02</span><div><h3>Extraer páginas</h3><p>Indica los números según el orden actual, separados por comas o rangos.</p></div></div>
+              <div class="action-row"><label class="filename-field selection-field"><span>Páginas <small>Ejemplo: 1, 3-5</small></span><div><input id="extract-pages" type="text" placeholder="1, 3-5" aria-label="Páginas que quieres extraer" /></div></label><label class="filename-field"><span>Nombre del archivo</span><div><input id="extract-filename" type="text" value="paginas-extraidas" aria-label="Nombre del archivo extraído" /><span class="file-extension">.pdf</span></div></label><button id="extract-pdf" class="button button-secondary action-button" type="button"><span>Extraer y descargar</span><span aria-hidden="true">↓</span></button></div>
+            </div>
+          </div>
+          <div id="status" class="status" role="status" aria-live="polite"></div>
+        </section>
+        <footer class="footer"><span>Organiza tus documentos a tu manera.</span><span class="footer-lock">⌑ Procesamiento privado en tu navegador</span></footer>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
